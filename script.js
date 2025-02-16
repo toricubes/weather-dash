@@ -13,6 +13,7 @@ $(document).ready(function(){
     let curUvDisp = $('.weather-data .current-uv');
     let curIconDisp = $('#current-image');
     let cityDisp = $('#current-weather-heading');
+    let fiveDayWrapper = $('#forecast .wrapper');
     
     function handleSubmit(event) {
         event.preventDefault();
@@ -71,8 +72,27 @@ $(document).ready(function(){
 
     function displayFiveDay(weatherJSON) {
         $('#forecast .wrapper').empty();
-        let card = $('<div>').addClass('card');
         
+        for (let i = 0; i < 5; i++) {
+            let card = $('<div>').addClass('card');
+
+            let dailyJSON = weatherJSON.daily[i];
+            card.append($('<p>').addClass('date').html(dailyJSON.dt));
+
+            card.append($('<img>').attr('src', `https://openweathermap.org/img/wn/${dailyJSON.weather[0].icon}@4x.png`));
+            
+            let inner = $('<div>').addClass('inner');
+
+            inner.append($('<p>').html(`weather: ${dailyJSON.weather[0].main}`));
+
+            inner.append($('<p>').html(`min: ${dailyJSON.temp.min}`));
+
+            inner.append($('<p>').html(`max: ${dailyJSON.temp.max}`));
+
+            card.append(inner);
+
+            fiveDayWrapper.append(card);
+        }
 
     }
 
