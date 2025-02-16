@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dash</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Weather Dash</h1>
+    </header>
+    <main>
+        <section id="search">
+            <div class="fields">
+                <label for="city-search">Search for a location</label>
+                <input type="text" id="city-search">
+                <button id="submit">Submit</button>
+            </div>
+              <!-- RECENT SEARCHES GO HERE -->
+        </section>
+        <section id="weather-current">
+            <h2 id="current-weather-heading">Current weather in NAME</h2>
+            <figure>
+                <img id="current-image" src="https://fakeimg.pl/100x100" alt="">
+            </figure>
+            <div class="weather-data">
+                <p>Temperature: <span class="current-temp"></span></p>
+                <p>Humidity: <span class="current-humidity"></span></p>
+                <p>UV Index: <span class="current-uv"></span></p>
+            </div>
+        </section>
+
+        <section id="forecast">
+
+        </section>
+    </main>
+</body>
+</html>
